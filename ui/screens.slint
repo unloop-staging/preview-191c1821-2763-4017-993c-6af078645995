@@ -142,8 +142,6 @@ export component HomeScreen inherits Rectangle {
 export component DetailScreen inherits Rectangle {
     in-out property <AppData> data;
     
-
-    
     background: transparent;
     
     VerticalLayout {
@@ -157,11 +155,90 @@ export component DetailScreen inherits Rectangle {
             ScrollView {
                 VerticalLayout {
                     padding: 16px;
+                    spacing: 24px;
                     
                     Text {
-                        text: "Detail View";
-                        font-size: 20px;
-                        color: white;
+                        text: "Current Conditions";
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: #9E9E9E;
+                    }
+                    
+                    HorizontalLayout {
+                        spacing: 12px;
+                        
+                        MetricCard {
+                            compact: true;
+                            data: {
+                                label: "Feels Like",
+                                value: data.feels-like,
+                                unit: "°F",
+                                trend: "",
+                                trend-value: ""
+                            };
+                        }
+                        MetricCard {
+                            compact: true;
+                            data: {
+                                label: "Dew Point",
+                                value: data.dew-point,
+                                unit: "°F",
+                                trend: "",
+                                trend-value: ""
+                            };
+                        }
+                        MetricCard {
+                            compact: true;
+                            data: {
+                                label: "UV Index",
+                                value: data.uv-index,
+                                unit: "",
+                                trend: "",
+                                trend-value: ""
+                            };
+                        }
+                        MetricCard {
+                            compact: true;
+                            data: {
+                                label: "Visibility",
+                                value: data.visibility,
+                                unit: "mi",
+                                trend: "",
+                                trend-value: ""
+                            };
+                        }
+                    }
+                    
+                    Text {
+                        text: "Wind";
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: #9E9E9E;
+                    }
+                    
+                    HorizontalLayout {
+                        spacing: 12px;
+                        
+                        MetricCard {
+                            compact: true;
+                            data: {
+                                label: "Direction",
+                                value: data.wind-direction,
+                                unit: "°",
+                                trend: "",
+                                trend-value: ""
+                            };
+                        }
+                        MetricCard {
+                            compact: true;
+                            data: {
+                                label: "Gust",
+                                value: data.wind-gust,
+                                unit: "mph",
+                                trend: "",
+                                trend-value: ""
+                            };
+                        }
                     }
                 }
             }
